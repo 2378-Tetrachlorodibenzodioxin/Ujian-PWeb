@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <h1>Library Management System</h1>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="sidebar">
+                <h2>Menu</h2>
+                <br>
+                <ul id="menu">
+                    <li><button onclick="showBooks()">Books</button></li>
+                    <br>
+                    <li><button onclick="showMembers()">Members</button></li>
+                    <br>
+                    <li><button onclick="showPublishers()">Publishers</button></li>
+                </ul>
+            </div>
+
+            <div class="main" id="mainContent">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" id="edit_ID_Buku">
+                        <div class="mb-3">
+                            <label for="edit_judul" class="form-label">Judul</label>
+                            <input type="text" class="form-control" id="edit_judul" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit_pengarang" class="form-label">Pengarang</label>
+                            <input type="text" class="form-control" id="edit_pengarang" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit_harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="edit_harga" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="edit_ketersediaan">
+                            <label class="form-check-label" for="edit_ketersediaan">Ketersediaan</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit_pub_ID" class="form-label">Publisher ID</label>
+                            <input type="text" class="form-control" id="edit_pub_ID" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updateBook()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
